@@ -1,6 +1,10 @@
 box: ubuntu
 build:
   steps:
+    - script:
+      name: testing
+      code: | 
+        cat /etc/resolv.conf
     - internal/docker-build:
       dockerfile: Dockerfile
       image-name: test-docker
