@@ -1,0 +1,12 @@
+box: ubuntu
+build:
+  steps:
+    - internal/docker-build:
+      dockerfile: Dockerfile
+      image-name: test-docker
+    - internal/docker-push:
+      image: test-docker
+      username: $USERNAME # Docker Hub username. When using CLI, set using "export X_USERNAME="
+      password: $PASSWORD # Docker Hub password. When using CLI, set using "export X_PASSWORD="
+      repository: $USERNAME/test-docker
+      tag: latest
